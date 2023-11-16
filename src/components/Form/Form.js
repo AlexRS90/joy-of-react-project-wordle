@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Form({ handleSubmitGuess }) {
+function Form({ handleSubmitGuess, status }) {
   const [tentativeGuess, setTentativeGuess] = React.useState('');
   function guessing(event){
     event.preventDefault();
@@ -16,6 +16,7 @@ function Form({ handleSubmitGuess }) {
         maxLength={5}
         pattern="[a-zA-Z]{5}"
         title="5 letter word"
+        disabled={status !== 'running'}
         id='guess-input'
         type='text'
         value={tentativeGuess}
